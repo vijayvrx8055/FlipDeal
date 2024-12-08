@@ -31,7 +31,7 @@ app.get('/membership-discount',(req,res)=>{
 
 app.get('/calculate-tax', (req,res)=>{
   cartTotal = parseFloat(req.query.cartTotal);
-  cartTotal = cartTotal * taxRate;
+  cartTotal = cartTotal * (taxRate/100);
   res.send(cartTotal.toString());
 });
 
