@@ -36,7 +36,7 @@ app.get('/calculate-tax', (req,res)=>{
 });
 
 app.get('/estimate-delivery', (req,res)=>{
-  let shippingMethod = req.get.shippingMethod;
+  let shippingMethod = req.query.shippingMethod;
   let distance = parseFloat(req.query.distance);
   let days = 0;
   if(shippingMethod === "Standard"){
