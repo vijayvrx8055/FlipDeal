@@ -38,10 +38,13 @@ app.get('/calculate-tax', (req,res)=>{
 app.get('/estimate-delivery', (req,res)=>{
   let shippingMethod = req.get.shippingMethod;
   let distance = parseFloat(req.query.distance);
+  let days = 0;
   if(shippingMethod === "Standard"){
-    res.send((distance/50).toString());
+    days = distance/50;
+    res.send(days.toString());
   }else if(shippingMethod === "Express"){
-    res.send((distance/100).toString());
+    days = distance/100;
+    res.send(days.toString());
   }
 });
 
