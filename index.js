@@ -48,6 +48,12 @@ app.get('/estimate-delivery', (req,res)=>{
   }
 });
 
+app.get('/shipping-cost',(req,res)=>{
+  let weight = parseFloat(req.query.weight);
+  let distance = parseFloat(req.query.distance);
+  let shippingCost = weight * distance * 0.1;
+  res.send(shippingCost.toString());
+});
 
 
 app.use(express.static('static'));
