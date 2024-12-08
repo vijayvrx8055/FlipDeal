@@ -35,6 +35,18 @@ app.get('/calculate-tax', (req,res)=>{
   res.send(cartTotal.toString());
 });
 
+app.get('/estimate-delivery', (req,res)=>{
+  let shippingMethod = req.get.shippingMethod;
+  let distance = parseFloat(req.query.distance);
+  if(shippingMethod === "Standard"){
+    res.send((distance/50).toString());
+  }else if(shippingMethod === "Express"){
+    res.send((distance/100).toString());
+  }
+});
+
+
+
 app.use(express.static('static'));
 
 app.get('/', (req, res) => {
